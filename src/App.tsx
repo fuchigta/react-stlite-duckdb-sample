@@ -6,10 +6,7 @@ const defaultPythonScript = `
 import streamlit as st
 import pandas as pd
 import numpy as np
-import json
 import duckdb
-
-st.title('Hello, World ')
 
 if st.session_state.get("df") is None:
   df = pd.DataFrame({
@@ -19,8 +16,6 @@ if st.session_state.get("df") is None:
   st.session_state["df"] = df
 
 df = st.session_state.df
-st.dataframe(df)
-
 query = st.text_input(label="query", value="SELECT * FROM df where first > 1")
 st.dataframe(duckdb.sql(query).df())
 `.trim();
@@ -38,16 +33,14 @@ function App() {
     <div className="app-container">
       <div className="editor">
         <input type="text" value={requirements.join(" ")} onChange={(e) => {
-          e.preventDefault();
-          setRequirements(e.target.value.split(" ").map(s => s.trim()).filter(s => s.length));
+          setRequirements(e.target.value.split(" ").map(s => s.trim()));
         }} />
         <textarea value={pythonScript} onChange={(e) => {
-          e.preventDefault();
           setPythonScript(e.target.value);
         }}></textarea>
       </div>
       <div className="viewer">
-        <StliteWrapper pythonScript={pythonScript} requirements={requirements} hideHeader={true} />
+        <StliteWrapper pythonScript={pythonScript} requirements={requirements.filter(s => s.length)} hideHeader={true} />
       </div>
     </div>
   )

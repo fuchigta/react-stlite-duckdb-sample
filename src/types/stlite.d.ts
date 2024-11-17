@@ -10,6 +10,7 @@ interface StliteMount {
         requirements: string[];
         entrypoint: string;
         files: { [key: string]: string };
+        disableProgressToasts?: boolean;
     }, container: HTMLElement) => Promise<StliteInstance>;
 }
 

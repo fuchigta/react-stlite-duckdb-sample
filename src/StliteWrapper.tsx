@@ -40,7 +40,8 @@ const StliteWrapper: React.FC<StliteWrapperProps> = ({
                             entrypoint: 'streamlit_app.py',
                             files: {
                                 'streamlit_app.py': pythonScript
-                            }
+                            },
+                            disableProgressToasts: true
                         }, containerRef.current);
 
                         stliteInstanceRef.current = instance;
