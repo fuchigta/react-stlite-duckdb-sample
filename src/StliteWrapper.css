@@ -1,0 +1,83 @@
+/* StliteWrapper.css */
+.stlite-wrapper {
+    width: 100%;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+}
+
+.stlite-container {
+    width: 100%;
+    height: 100%;
+}
+
+/* Streamlitのスタイルをスコープ化 */
+.stlite-wrapper [data-testid="stHeader"] {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+}
+
+.stlite-wrapper [data-testid="stToolbar"] {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+}
+
+.stlite-wrapper .block-container {
+    padding-top: 1rem !important;
+    max-width: none !important;
+    width: 100% !important;
+}
+
+.stlite-wrapper [data-testid="stLayoutMainContainer"] {
+    position: static !important;
+}
+
+.stlite-wrapper .main {
+    overflow: visible !important;
+}
+
+.stlite-wrapper .element-container {
+    position: static !important;
+}
+
+/* カスタムスクロールバー */
+.stlite-wrapper ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.stlite-wrapper ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.stlite-wrapper ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+/* コントロール要素 */
+.stlite-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.stlite-reload-button {
+    padding: 6px 12px;
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.stlite-reload-button:hover {
+    background-color: #e5e7eb;
+}
